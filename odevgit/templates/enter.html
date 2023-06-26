@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('index') }}">Go back</a>
+    <h1>{% block title %} Enter a new record {% endblock %}</h1>
+    <form method="post">  
+        <table>    
+            <tr><td>Country Name</td><td><input type="text" name="cona"  value="{{ request.form['cona'] }}"></td></tr> 
+            <tr><td>Country Code</td><td><input type="text" name="coco"  value="{{ request.form['coco'] }}"></td></tr> 
+            <tr><td>Clean Fuels</td><td><input type="text" name="clefu"  value="{{ request.form['clefu'] }}"></td></tr>
+            <tr><td>Electricity In Rural</td><td><input type="text" name="elru" value="{{ request.form['elru'] }}"></td></tr>
+            <tr><td>Electricity In Urban</td><td><input type="text" name="elur" value="{{ request.form['elur'] }}"></td></tr>
+            <tr><td>School Enrollment Rate</td><td><input type="text" name="scra" value="{{ request.form['scra'] }}"></td></tr>
+            <tr><td>Date</td><td><input type="text" name="date" value="{{ request.form['date'] }}"></td></tr>
+            
+            <tr><td><input type="submit" value="Submit"></td></tr>  
+        </table>  
+        </form>   
+{% endblock %}

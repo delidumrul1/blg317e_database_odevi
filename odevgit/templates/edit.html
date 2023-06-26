@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('index') }}">Go back</a>
+    <h1>{% block title %} Edit this record {% endblock %}</h1>
+    <form method="post">  
+        <table>    
+            <tr><td>Country Name</td><td><input type="text" name="cona"  value="{{ request.form['cona'] or data['country_name'] }}"></td></tr> 
+            <tr><td>Country Code</td><td><input type="text" name="coco"  value="{{ request.form['coco'] or data['country_code'] }}"></td></tr> 
+            <tr><td>Clean Fuels</td><td><input type="text" name="clefu"  value="{{ request.form['clefu'] or data['clean_fuel'] }}"></td></tr>
+            <tr><td>Electricity In Rural</td><td><input type="text" name="elru" value="{{ request.form['elru'] or data['elec_rural'] }}"></td></tr>
+            <tr><td>Electricity In Urban</td><td><input type="text" name="elur" value="{{ request.form['elur'] or data['elec_urban'] }}"></td></tr>
+            <tr><td>School Enrollment Rate</td><td><input type="text" name="scra" value="{{ request.form['scra'] or data['school_enroll'] }}"></td></tr>
+            <tr><td>Date</td><td><input type="text" name="date" value="{{ request.form['date'] or data['date'] }}"></td></tr>
+            
+            <tr><td><input type="submit" value="Submit"></td></tr>  
+        </table>  
+        </form>
+        <hr>
+        <form action="{{ url_for('delete', id=data['id']) }}" method="POST">
+            <input type="submit" value="Delete"
+                    onclick="return confirm('Lester, is this what you want? Yes or no? <Fargo reference>')">
+        </form>  
+{% endblock %}

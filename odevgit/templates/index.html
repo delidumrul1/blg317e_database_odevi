@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Education Table {% endblock %}</h1>
+    <a href="{{ url_for('enter') }}">Create</a>
+    <br>
+    <hr>
+    <br>
+    <table border=5>  
+        <thead>  
+            <td>ID</td>  
+            <td> Country Name</td>  
+            <td>Country Code</td>  
+            <td>Clean Fuels</td>
+            <td>Electricity In Rural</td>
+            <td>Electricity In Urban</td>
+            <td>School Enrollment Rate</td>
+            <td>Date</td>
+            <td>Edit/Delete</td>
+        </thead>  
+          
+        {% for row in rows %}  
+          
+            <tr>  
+                <td>{{row["id"]}}</td>  
+                <td>{{row["country_name"]}}</td>  
+                <td>{{row["country_code"]}}</td>  
+                <td>{{row["clean_fuel"]}}</td>
+                <td>{{row["elec_rural"]}}</td> 
+                <td>{{row["elec_urban"]}}</td> 
+                <td>{{row["school_enroll"]}}</td> 
+                <td>{{row["date"]}} </td>
+                <td><a href="{{ url_for('edit', id=row['id']) }}">Edit</a> 
+                    <form action="{{ url_for('delete', id=row['id']) }}" method="POST">
+                        <input type="submit" value="Delete"
+                            onclick="return confirm('Lester, is this what you want? Yes or no? <Fargo reference>')">
+                     </form></td>   
+            </tr>
+              
+          
+        {% endfor %}  
+    </table>  
+    <br><br> 
+{% endblock %}

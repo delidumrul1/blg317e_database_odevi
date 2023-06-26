@@ -1,0 +1,14 @@
+The table in EducationAndEnviron_Data.csv is the original data but some of its datas are column in our validated data. So table_maker.cpp corrects this and from table inEducationAndEnviron_Data.csv
+it creates our validated table. 
+	
+One can see immediately the all table when they go into site, so app can read the database without a problem.
+	
+We can delete a row from the button in the table cell, so our app can delete.
+	
+we can edit in a similar to delete, via link in the table cell. When we click edit, we go into edit page. Edit page is like the page for entering data, but in edit page we have delete button again. When we submit, we can see the changed data in the table. So our app can update data. 
+	
+We can enter a new data from enter link above the table. This page is similar to edit page but it doesn't have a delete button. After we submit we are redirected to previous page which contains the table. We can see there our new data. So our app can create data.
+
+When we insert or update invalid data, we get some errors. For example, if we try to create new data about countries other than	5 countries in question (China, Russia or Russian Federation, South Africa, Brazil) we get a error about that. When the country name and country code do not match we get a error again about that. So our app can validate the relevant data. Again for error messages we use flash(), for this we need session. Ofcourse we do not forget to initialize the secret key. get_flashed_messages(): Pulls all flashed messages from the session and returns them. So our app use session too.
+
+database.py creates the Education table from table2.csv. 
